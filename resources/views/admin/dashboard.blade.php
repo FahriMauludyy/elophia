@@ -9,7 +9,6 @@
   <title>Admin Dashboard</title>
   @vite('resources/css/app.css') {{-- Pastikan Tailwind sudah terpasang --}}
   <style>
-    
     .font-dmsans {
         font-family: 'DM Sans', sans-serif;
     }
@@ -21,67 +20,83 @@
 <body class="bg-[#FAF4E4] font-dmsans">
 
   <div class="min-h-screen flex">
+    <script src="https://unpkg.com/lucide@latest"></script>
 
-    {{-- Sidebar --}}
-    <aside class="w-52 bg-[#242424] rounded-lg m-3 shadow-lg hidden md:block">
-      <div class="p-6 text-3xl  font-logo text-white">
-        Elophia
-      </div>
-      <nav class="px-6 mt-6 text-white space-y-4">
-        <a href="#" class="block">Dashboard</a>
-        <a href="#" class="block">Add Product</a>
-      </nav>
-    </aside>
+    @include('components.sidebar')
 
     {{-- Main Content --}}
     <main class="flex-1 p-6">
       <header class="flex justify-between items-center mb-6">
-        <h1 class="text-2xl font-semibold">Dashboard</h1>
-        <div class="text-gray-700">Hello, <span class="font-medium">Admin</span></div>
+        <h1 class="text-2xl font-semibold" id="page-title">Dashboard</h1>
+        <div class="text-gray-700 text-lg">Hello, <span class="font-semibold">Fahri Mauludy</span></div>
       </header>
-
-      {{-- Form Tambah Produk --}}
-      <div class="bg-white p-6 rounded-lg shadow-md max-w-3xl">
-        <form action="#" method="POST" enctype="multipart/form-data">
-          @csrf
-          <div class="mb-4">
-            <label class="block mb-1 font-medium">Product Name</label>
-            <input type="text" name="name" class="w-full border rounded-lg p-2 focus:outline-none focus:ring focus:border-indigo-400" required>
+    
+      {{-- Dashboard Content --}}
+      <div id="dashboardContent" class="content-section space-y-6">
+    
+        <!-- Two Column Section -->
+        <div class="flex flex-col space-y-6">
+          <!-- Produk List -->
+          <div class="bg-white p-6 rounded-lg shadow-md">
+            <h2 class="text-xl font-semibold mb-4">Produk List</h2>
+            <ul class="space-y-2 text-gray-700">
+              <li>Rumah Minimalis - $30,000</li>
+              <li>Villa Bali - $75,000</li>
+              <li>Studio Apartment - $20,000</li>
+            </ul>
           </div>
-
-          <div class="mb-4">
-            <label class="block mb-1 font-medium">Price</label>
-            <input type="number" name="price" class="w-full border rounded-lg p-2 focus:outline-none focus:ring focus:border-indigo-400" required>
+    
+          <!-- User List -->
+          <div class="max-w-full  bg-white rounded-lg shadow-md p-6">
+            <div class="flex justify-between items-center mb-5">
+              <h1 class="text-lg font-bold">List User</h1>
+              <form class="flex space-x-2">
+                <input
+                  type="text"
+                  placeholder="Cari User..."
+                  class="border border-gray-300 rounded px-3 py-1 text-sm focus:outline-none focus:ring-1 focus:ring-indigo-500"
+                />
+                <button
+                  type="submit"
+                  class="bg-black text-white px-3 py-1 rounded text-sm hover:bg-gray-800"
+                >
+                  Search
+                </button>
+              </form>
+            </div>
+            <table class="w-full border-collapse rounded overflow-hidden">
+              <thead>
+                <tr class="bg-gray-300 text-left text-sm font-medium text-gray-800">
+                  <th class="px-4 py-2 rounded-tl">Nama</th>
+                  <th class="px-4 py-2">Email</th>
+                  <th class="px-4 py-2">Phone</th>
+                  <th class="px-4 py-2 rounded-tr">Role</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="border-t border-gray-200 text-sm">
+                  <td class="px-4 py-3">Admin</td>
+                  <td class="px-4 py-3">admin@idn.com</td>
+                  <td class="px-4 py-3">112233445566</td>
+                  <td class="px-4 py-3">
+                    <span
+                      class="bg-yellow-200 text-yellow-700 text-xs font-semibold px-2 py-0.5 rounded"
+                    >
+                      Admin
+                    </span>
+                  </td>
+                </tr>
+                
+              </tbody>
+            </table>
           </div>
-
-          <div class="mb-4">
-            <label class="block mb-1 font-medium">Category</label>
-            <select name="category" class="w-full border rounded-lg p-2 focus:outline-none focus:ring focus:border-indigo-400" required>
-              <option value="" disabled selected>Select Category</option>
-              <option value="clothing">Clothing</option>
-              <option value="electronics">Electronics</option>
-              <option value="accessories">Accessories</option>
-            </select>
-          </div>
-
-          <div class="mb-4">
-            <label class="block mb-1 font-medium">Description</label>
-            <textarea name="description" rows="4" class="w-full border rounded-lg p-2 focus:outline-none focus:ring focus:border-indigo-400"></textarea>
-          </div>
-
-          <div class="mb-4">
-            <label class="block mb-1 font-medium">Product Image</label>
-            <input type="file" name="image" class="w-full text-sm text-gray-600">
-          </div>
-
-          <button type="submit" class="bg-indigo-600 text-white px-6 py-2 rounded-lg hover:bg-indigo-700 transition duration-200">
-            Add Product
-          </button>
-        </form>
+        </div>
       </div>
     </main>
+    
 
   </div>
 
+ 
 </body>
 </html>

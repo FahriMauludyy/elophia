@@ -259,8 +259,8 @@
                 </div> 
                 <div class="blog-section w-full mb-32">
                     <div class="grid grid-cols-2 gap-10">
-                        <div class="card w-full h-auto">
-                            <img class="w-full" src="assets/images/blog1.jpg" alt="">
+                        <div class="card w-full h-full">
+                            <img class="w-full h-[80%]" src="assets/images/blog1.jpg" alt="">
                             <div class="text-area text-[#242424] w-full">
                                 <div class="flex flex-col">
                                     <h1 class="my-5 text-[24px]">Save the money and buy the planet time</h1>
@@ -269,8 +269,8 @@
                                
                             </div>
                         </div>
-                        <div class="card w-full h-auto">
-                            <img class="w-full h-[475px]" src="assets/images/blog2.jpg" alt="">
+                        <div class="card w-full h-full">
+                            <img class="w-full h-[80%]" src="assets/images/blog2.jpg" alt="">
                             <div class="text-area text-[#242424] w-full">
                                 <div class="flex flex-col">
                                     <h1 class="my-5 text-[24px]">You're not alone</h1>
