@@ -28,7 +28,7 @@
     <main class="flex-1 p-6">
       <header class="flex justify-between items-center mb-6">
         <h1 class="text-2xl font-semibold" id="page-title">Dashboard</h1>
-        <div class="text-gray-700 text-lg">Hello, <span class="font-semibold">Fahri Mauludy</span></div>
+        <div class="text-gray-700 text-lg">Hello, <span class="font-semibold">{{ Auth::user()->name }}</span></div>
       </header>
     
       {{-- Dashboard Content --}}

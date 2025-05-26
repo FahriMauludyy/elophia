@@ -21,7 +21,7 @@
             .main-header {
                 opacity: 1;
                 transition: opacity 0.3s ease;
-            }
+            }   
             .bg-home {
                 background-image: url('assets/images/image1.jpg');
                 background-size: cover;
@@ -53,7 +53,7 @@
                 <li><a href="#">Contact</a></li>
             </ul>
             <div class="flex items-center space-x-4 text-white">
-                <a href="#" class=" hover:underline">Register</a>
+                <a href="{{ route('register')}}" class=" hover:underline">Register</a>
                 
                 <div class="w-px h-4 bg-white"></div>
                 

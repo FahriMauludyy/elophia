@@ -7,7 +7,7 @@
   
       <!-- Navigation Menu -->
       <nav class="px-6 mt-4 text-white space-y-2">
-        <a href="{{route('admin.dashboard')}}" id="menu-dashboard" class="   {{ request()->routeIs('admin.dashboard') ? 'bg-[#383838]' : 'bg-[#242424] ' }} flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-[#383838] transition-colors">
+        <a href="{{route('dashboard')}}" id="menu-dashboard" class="   {{ request()->routeIs('admin.dashboard') ? 'bg-[#383838]' : 'bg-[#242424] ' }} flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-[#383838] transition-colors">
           <i data-lucide="layout-dashboard" class="w-5 h-5"></i>
           Dashboard
         </a>
@@ -20,10 +20,14 @@
   
     <!-- Logout -->
     <div class="px-6 mb-4">
-      <a href="#" class="flex items-center gap-3 px-3 py-2 text-[#242424] rounded-lg hover:bg-[#b8b8b8] bg-white transition-colors">
-        <i data-lucide="log-out" class="w-5 h-5"></i>
-        Logout
-      </a>
+      <form method="POST" action="{{ route('logout') }}">
+        @csrf
+        <button type="submit" class="flex items-center gap-3 px-3 py-2 text-[#242424] rounded-lg hover:bg-[#b8b8b8] bg-white transition-colors">
+          <i data-lucide="log-out" class="w-5 h-5"></i>
+          Logout
+        </button>
+    </form>
+      
     </div>
   </aside>
 
