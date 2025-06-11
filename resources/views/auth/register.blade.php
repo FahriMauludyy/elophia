@@ -44,6 +44,13 @@
                             @enderror
                         </div>
 
+                        <div class="w-[70%] text-left">
+                            <input id="phone" class="w-full h-10 border p-2" type="number" name="phone" value="{{ old('phone') }}" placeholder="Phone Number" required autocomplete="phone">
+                            @error('phone')
+                                <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
+                            @enderror
+                        </div>
+
                         <!-- Password -->
                         <div class="w-[70%] text-left">
                             <input id="password" class="w-full h-10 border p-2" type="password" name="password" placeholder="Password" required autocomplete="new-password">

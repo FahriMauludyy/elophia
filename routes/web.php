@@ -3,14 +3,25 @@
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\AuthController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UserController;    
+use App\Http\Controllers\ProductController;
+use App\Http\Controllers\DashboardController;
+
+
+
 
 Route::get('/', function () {
     return view('home');
 });
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+Route::post('products/store', [ProductController::class, 'store'])->name('products.store');
+Route::get('products/create', [ProductController::class, 'create'])->name('products.create');
+Route::get('/dashboard', [DashboardController::class, 'index'])->middleware(['auth'])->name('dashboard');
+
+
+Route::put('/users/{user}/role', [UserController::class, 'updateRole'])->name('users.updateRole');
+
+Route::get('/search', [UserController::class, 'index'])->name('search');
 
 Route::get('/admin/add-product', function () {
     return view('admin.add-product');
